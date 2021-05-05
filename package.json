@@ -2,6 +2,7 @@
   "scripts": {
     "build:simple": "babel --out-dir ./simple-output/ ./simple-input/index.js",
     "build:es6": "babel --presets @babel/preset-env --out-dir ./es6-output/ ./es6-input/index.js",
+    "build:uwu": "babel --plugins ./plugins/uwuifier.js --out-dir ./uwu-output/ ./uwu-input/index.js",
     "clean": "rm -r ./*-output/"
   },
   "dependencies": {},
