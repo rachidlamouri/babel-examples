@@ -1,6 +1,8 @@
 const _ = require('lodash');
 const Ajv = require('ajv');
 
+var stack;
+
 const getSchemaReferencesErrorMessages = ({
   allSchemas,
   parametersAndSchemas,
@@ -43,11 +45,14 @@ const validateReturnValue = (returnedValue, options) => {
       return;
     }
 
+    console.log(stack);
+
     throw Error(`${modifier} should be undefined`);
   }
 
   const errorMessage = getValidationErrorMessage(returnSchema, returnedValue, options);
   if (errorMessage) {
+    console.log(stack);
     const modifiedMessage = errorMessage.replace(/data/g, modifier);
     throw Error(modifiedMessage);
   }
@@ -106,6 +111,8 @@ module.exports.buildValidate = (additionalSchemas = {}) => {
   });
 
   const validate = (parameterAndSchemaTuples, returnSchema, wrappedFunction, { returnsPromise = false } = {}) => {
+    stack = new Error('Original Stack Trace').stack;
+
     const parametersAndSchemas = _.isArray(parameterAndSchemaTuples)
       ? parameterAndSchemaTuples.map(([parameter, schema], index) => ({
         parameter,

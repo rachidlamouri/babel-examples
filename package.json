@@ -6,7 +6,9 @@
     "clean": "rm -r ./*-output/",
     "test:plugin": "mocha ./tests/plugin/jssPlugin.test.js",
     "build:validate-tests": "babel --plugins ./plugins/jssPlugin.js --out-dir ./tests/validate-output/ ./tests/validate/*",
-    "test:validate": "mocha ./tests/validate-output/validate.test.js"
+    "test:validate": "mocha ./tests/validate-output/validate.test.js",
+    "build:app": "babel --plugins ./plugins/jssPlugin.js --source-maps --out-dir ./app-output/ ./app/",
+    "app": "node -r source-map-support/register app-output/app"
   },
   "dependencies": {
     "@babel/cli": "^7.13.16",
@@ -16,8 +18,10 @@
     "babel-plugin-tester": "^10.0.0",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
+    "commander": "^7.2.0",
     "lodash": "^4.17.21",
     "mocha": "^8.3.2",
+    "source-map-support": "^0.5.19",
     "yaml": "^1.10.2"
   }
 }
