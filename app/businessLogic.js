@@ -1,17 +1,5 @@
 const dataHandler = require('./dataHandler');
 
-
-
-/*jss
-  params:
-    todosByUser: todo/todosByUser
-    userId: todo/userId
-  return:
-*/
-const addUserToTodos = (todosByUser, userId) => {
-
-};
-
 const businessLogic = {
   /*jss
     params:
