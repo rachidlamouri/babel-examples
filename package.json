@@ -4,9 +4,9 @@
     "build:es6": "babel --presets @babel/preset-env --out-dir ./es6-output/ ./es6-input/index.js",
     "build:uwu": "babel --plugins ./plugins/uwuifier.js --out-dir ./uwu-output/ ./uwu-input/index.js",
     "clean": "rm -r ./*-output/",
-    "test:plugin": "mocha ./tests/plugin/jssPlugin.test.js",
-    "build:validate-tests": "babel --plugins ./plugins/jssPlugin.js --out-dir ./tests/validate-output/ ./tests/validate/*",
-    "test:validate": "mocha ./tests/validate-output/validate.test.js",
+    "test:jss-plugin": "mocha ./tests/plugin/jssPlugin.test.js",
+    "build:jss-validate-tests": "babel --plugins ./plugins/jssPlugin.js --out-dir ./tests/validate-output/ ./tests/validate/*",
+    "test:jss-validate": "mocha ./tests/validate-output/validate.test.js",
     "build:app": "babel --plugins ./plugins/jssPlugin.js --source-maps --out-dir ./app-output/ ./app/",
     "app": "node -r source-map-support/register app-output/app"
   },
