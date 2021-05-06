@@ -60,7 +60,7 @@ const businessLogic = {
       return:
     */
     const logUserTodos = (todosByUser) => {
-      console.log('Todos:', JSON.stringify(todosByUser[userId], null, 2));
+      console.log(`${userId} Todos:`, JSON.stringify(todosByUser[userId], null, 2));
     };
 
     return dataHandler.get()
