@@ -1,5 +1,7 @@
 # Babel Examples
 
+Examples of transpiling JavaScript code with Babel.
+
 ## Installation
 
 ```bash
